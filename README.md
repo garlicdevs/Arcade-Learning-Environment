@@ -21,7 +21,7 @@ Feedback and suggestions are welcome and may be addressed to any active member o
 - Agents programmed in C++ have access to all features in the ALE.
 - Visualization tools.
 
-## This Patched Code
+## What is this patch for?
 - This patch supports latest Mac OS Sierra
 - More thread-safe (delete all static fields)
 - User can set configuration file for each environment using ale.setString(b'config', b'path_to_config_file'). (thread-safe)
