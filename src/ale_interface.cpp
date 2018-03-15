@@ -96,7 +96,7 @@ void ALEInterface::checkForUnsupportedRom(std::unique_ptr<OSystem>& theOSystem) 
   if (!found) {
     // If the md5 doesn't match our master list, warn the user. 
     Logger::Warning << std::endl;
-    Logger::Warning << "WARNING: Possibly unsupported ROM: mismatched MD5." << std::endl;
+    //Logger::Warning << "WARNING: Possibly unsupported ROM: mismatched MD5." << std::endl;
     Logger::Warning << "Cartridge_MD5: " << md5 << std::endl;
     const std::string name = properties.get(Cartridge_Name);
     Logger::Warning << "Cartridge_name: " << name << std::endl;

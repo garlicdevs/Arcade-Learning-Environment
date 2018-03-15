@@ -94,6 +94,8 @@ Settings::Settings(OSystem* osystem) : myOSystem(osystem) {
     setInternal("mwheel", "4");
     setInternal("autoslot", "false");
 
+    setInternal("config", "");
+
     setDefaultSettings();
 }
 

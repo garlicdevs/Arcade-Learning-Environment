@@ -13,6 +13,11 @@
  *
  *  Supports displaying the screen via SDL. 
  **************************************************************************** */
+
+#ifdef __MAC_OS
+#include <dlfcn.h>
+#endif
+
 #include "display_screen.h"
 #include "SoundSDL.hxx"
 using namespace std;
@@ -26,6 +31,13 @@ DisplayScreen::DisplayScreen(MediaSource* mediaSource,
         colour_palette(palette),
         delay_msec(17)
 {
+#ifdef __MAC_OS
+	void* cocoa = dlopen("/System/Library/Frameworks/Cocoa.framework/Cocoa", RTLD_LAZY);
+	void (*load)(void);
+	load = (void(*)()) dlsym(cocoa, "NSApplicationLoad");
+	load();
+#endif
+
     screen_height = media_source->height();
     screen_width = media_source->width();
     assert(window_height >= screen_height);
