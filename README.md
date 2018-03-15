@@ -27,7 +27,7 @@ Feedback and suggestions are welcome and may be addressed to any active member o
 - User can set configuration file for each environment using ale.setString(b'config', b'path_to_config_file'). (thread-safe)
 
 ## Installation Guide
-
+### Mac OS
 - We successfully installed ALE using the following steps on Mac OS 10.12 and Python 3.6.3
 
 1. Install brew:
@@ -50,6 +50,26 @@ make -j 4
 cd ..
 env MACOSX_DEPLOYMENT_TARGET=10.9 pip3.6 install .
 ```
+
+### Linux
+
+1. Install dependences:
+```
+sudo apt-get install libsdl1.2-dev libsdl-gfx1.2-dev libsdl-image1.2-dev cmake
+```
+
+2. Install Arcade Learning Environment:
+```
+git clone https://github.com/garlicdevs/Arcade-Learning-Environment.git
+cd Arcade-Learning-Environment
+mkdir build && cd build  
+cmake -DUSE_SDL=ON -DUSE_RLGLUE=OFF -DBUILD_EXAMPLES=ON ..
+make -j 4
+cd ..
+pip3.6 install .
+```
+
+### Windows
 
 Getting the ALE to work on Visual Studio requires a bit of extra wrangling. You may wish to use IslandMan93's [Visual Studio port of the ALE.](https://github.com/Islandman93/Arcade-Learning-Environment)
 
