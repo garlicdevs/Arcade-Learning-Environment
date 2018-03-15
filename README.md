@@ -21,28 +21,34 @@ Feedback and suggestions are welcome and may be addressed to any active member o
 - Agents programmed in C++ have access to all features in the ALE.
 - Visualization tools.
 
-## Quick start
+## This Patched Code
+- This patch supports latest Mac OS Sierra
+- More thread-safe (delete all static fields)
+- User can set configuration file for each environment using ale.setString(b'config', path_to_config_file). (thread-safe)
 
+## Installation Guide
 
-Install main dependences:
+- We successfully installed ALE using the following steps on Mac OS 10.12 and Python 3.6.3
+
+1. Install brew:
 ```
-sudo apt-get install libsdl1.2-dev libsdl-gfx1.2-dev libsdl-image1.2-dev cmake
-```
-
-Compilation:
-
-```
-$ mkdir build && cd build
-$ cmake -DUSE_SDL=ON -DUSE_RLGLUE=OFF -DBUILD_EXAMPLES=ON ..
-$ make -j 4
+ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-To install python module:
-
+2. Install dependences:
 ```
-$ pip install .
-or
-$ pip install --user .
+brew install sdl sdl_image sdl_mixer sdl_ttf smpeg portmidi cmake
+```
+
+3. Install Arcade Learning Environment:
+```
+git clone https://github.com/garlicdevs/Arcade-Learning-Environment.git
+cd Arcade-Learning-Environment
+mkdir build && cd build  
+cmake -DUSE_SDL=ON -DUSE_RLGLUE=OFF -DBUILD_EXAMPLES=ON -DMAC_OS ..
+make -j 4
+cd ..
+env MACOSX_DEPLOYMENT_TARGET=10.9 pip3.6 install .
 ```
 
 Getting the ALE to work on Visual Studio requires a bit of extra wrangling. You may wish to use IslandMan93's [Visual Studio port of the ALE.](https://github.com/Islandman93/Arcade-Learning-Environment)
