@@ -14,6 +14,7 @@
  *  Supports displaying the screen via SDL. 
  **************************************************************************** */
 
+
 #ifdef __MAC_OS
 #include <dlfcn.h>
 #endif

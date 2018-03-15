@@ -24,7 +24,7 @@ Feedback and suggestions are welcome and may be addressed to any active member o
 ## This Patched Code
 - This patch supports latest Mac OS Sierra
 - More thread-safe (delete all static fields)
-- User can set configuration file for each environment using ale.setString(b'config', path_to_config_file). (thread-safe)
+- User can set configuration file for each environment using ale.setString(b'config', b'path_to_config_file'). (thread-safe)
 
 ## Installation Guide
 
@@ -45,7 +45,7 @@ brew install sdl sdl_image sdl_mixer sdl_ttf smpeg portmidi cmake
 git clone https://github.com/garlicdevs/Arcade-Learning-Environment.git
 cd Arcade-Learning-Environment
 mkdir build && cd build  
-cmake -DUSE_SDL=ON -DUSE_RLGLUE=OFF -DBUILD_EXAMPLES=ON -DMAC_OS ..
+cmake -DUSE_SDL=ON -DUSE_RLGLUE=OFF -DBUILD_EXAMPLES=ON -DMAC_OS=ON ..
 make -j 4
 cd ..
 env MACOSX_DEPLOYMENT_TARGET=10.9 pip3.6 install .

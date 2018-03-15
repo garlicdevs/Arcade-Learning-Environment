@@ -5,6 +5,7 @@ set(ALEVERSION "0.6")
 
 option(USE_SDL "Use SDL" OFF)
 option(USE_RLGLUE "Use RL-Glue" OFF)
+option(MAC_OS "Mac OS" OFF)
 option(BUILD_EXAMPLES "Build Example Agents" ON)
 option(BUILD_CPP_LIB "Build C++ Shared Library" ON)
 option(BUILD_CLI "Build ALE Command Line Interface" ON)
@@ -17,6 +18,10 @@ set(LINK_LIBS z)
 if(USE_RLGLUE)
   add_definitions(-D__USE_RLGLUE)
   list(APPEND LINK_LIBS rlutils rlgluenetdev)
+endif()
+
+if(MAC_OS)
+  add_definitions(-D__MAC_OS)
 endif()
 
 if(USE_SDL)
