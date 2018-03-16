@@ -9,7 +9,7 @@ The Arcade Learning Environment (ALE) is a simple object-oriented framework that
 This patch is just an unofficial hard fork. The original code can be found [here](https://github.com/mgbellemare/Arcade-Learning-Environment).
 
 ## What is this patch for?
-- I had a hard time installing ALE on Windows 10 and Mac OS. Moreover, the [Visual Studio port](https://github.com/Islandman93/Arcade-Learning-Environment) of IslandMan93 uses outdated code ALE 0.0.1. Therefore, I created this multi-platform patch.
+- I had a hard time installing ALE on Windows 10 and Mac OS. Moreover, the [Visual Studio port](https://github.com/Islandman93/Arcade-Learning-Environment) of IslandMan93 uses outdated code ALE 0.0.1. Therefore, I created this multi-platform patch for ALE 0.6.0.
 - This patch supports latest Mac OS Sierra and Windows 10 (with ALE 0.6.0).
 - More thread-safe (delete all static fields).
 - User can set configuration file for each environment using function ale.setString(b'config', b'path_to_config_file').
@@ -107,7 +107,7 @@ available at http://www.arcadelearningenvironment.org.
 
 
 ## Support the authors of The Arcade Learning Environment
-
+By citing the following papers if you use ALE
 
 *M. G. Bellemare, Y. Naddaf, J. Veness and M. Bowling. The Arcade Learning Environment: An Evaluation Platform for General Agents, Journal of Artificial Intelligence Research, Volume 47, pages 253-279, 2013.*
 
