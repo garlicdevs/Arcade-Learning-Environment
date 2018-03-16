@@ -6,29 +6,21 @@
 
 The Arcade Learning Environment (ALE) is a simple object-oriented framework that allows researchers and hobbyists to develop AI agents for Atari 2600 games. It is built on top of the Atari 2600 emulator [Stella](https://stella-emu.github.io/) and separates the details of emulation from agent design. This [video](https://www.youtube.com/watch?v=nzUiEkasXZI) depicts over 50 games currently supported in the ALE.
 
-For an overview of our goals for the ALE read [The Arcade Learning Environment: An Evaluation Platform for General Agents](http://www.jair.org/papers/paper3912.html). If you use ALE in your research, we ask that you please cite this paper in reference to the environment (BibTeX entry at the end of this document). Also, if you have any questions or comments about the ALE, please contact us through our [mailing list](https://groups.google.com/forum/#!forum/arcade-learning-environment).
-
-
-Feedback and suggestions are welcome and may be addressed to any active member of the ALE team.
-
-### Features
-- Object-oriented framework with support to add agents and games.
-- Emulation core uncoupled from rendering and sound generation modules for fast emulation with minimal library dependencies.
-- Automatic extraction of game score and end-of-game signal for more than 50 Atari 2600 games.
-- Multi-platform code (compiled and tested under OS X and several Linux distributions, with Cygwin support).
-- Communication between agents and emulation core can be accomplished through pipes, allowing for cross-language development (sample Java code included).
-- Python development is supported through ctypes.
-- Agents programmed in C++ have access to all features in the ALE.
-- Visualization tools.
+This patch is just an unofficial hard fork. The original code can be found here(https://github.com/mgbellemare/Arcade-Learning-Environment).
 
 ## What is this patch for?
-- This patch supports latest Mac OS Sierra
-- More thread-safe (delete all static fields)
-- User can set configuration file for each environment using ale.setString(b'config', b'path_to_config_file'). (thread-safe)
+- I had a hard time installing ALE on Windows 10 and Mac OS. Moreover, the Visual Studio port(https://github.com/Islandman93/Arcade-Learning-Environment) of IslandMan93 uses outdated code ALE 0.0.1. Therefore, I created this multi-platform patch.
+- This patch supports latest Mac OS Sierra and Windows 10 (with ALE 0.6.0).
+- More thread-safe (delete all static fields).
+- User can set configuration file for each environment using function ale.setString(b'config', b'path_to_config_file').
+- Merge IslandMan93's [Visual Studio 2013 port of the ALE 0.0.1](https://github.com/Islandman93/Arcade-Learning-Environment) to ALE 0.6.0.
+- This patch is indexed as version 0.6.1.
+- Installation guide in more details.
+- Please let me (garlicdevs@gmail.com) know if you cannot install this patch.
 
 ## Installation Guide
 ### Mac OS
-- We successfully installed ALE using the following steps on Mac OS 10.12 and Python 3.6.3
+- I successfully installed ALE using the following steps on Mac OS 10.12 and Python 3.6.3
 
 1. Install brew:
 ```
@@ -70,14 +62,23 @@ pip3.6 install .
 ```
 
 ### Windows
+- I successfully installed ALE on Windows 10 (Visual Studio 2017) and Python 3.6.2 using the following steps:
 
-Getting the ALE to work on Visual Studio requires a bit of extra wrangling. You may wish to use IslandMan93's [Visual Studio port of the ALE.](https://github.com/Islandman93/Arcade-Learning-Environment)
+1. Download project
+```
+git clone https://github.com/garlicdevs/Arcade-Learning-Environment.git
+```
 
-For more details and installation instructions, see the [manual](doc/manual/manual.pdf). To ask questions and discuss, please join the [ALE-users group](https://groups.google.com/forum/#!forum/arcade-learning-environment).
+2. Open Visual Studio 2017 -> Open solution ALE.sln in folder visual_studio -> Set configuration (Release|x64) -> build ALE -> build ale_python_interface
+If you build projects successfully, the library ale_python_interface.dll will appear in folder visual_studio\x64\Release\
 
-## ALE releases
+3. Install Arcade Learning Environment:
+```
+cd Arcade-Learning-Environment
+python winsetup.py install
+```
 
-Releases before v.0.5 are available for download in our previous [website](http://www.arcadelearningenvironment.org/). For the latest releases, please check our releases [page](https://github.com/mgbellemare/Arcade-Learning-Environment/releases).
+I have committed a rebuilt ale_python_interface.dll, you can skip Step 2) (If you use Windows 10 64-bit).
 
 ## List of command-line parameters
 
@@ -106,10 +107,8 @@ available at http://www.arcadelearningenvironment.org.
 ```
 
 
-## Citing The Arcade Learning Environment
+## Support the authors of The Arcade Learning Environment
 
-
-If you use the ALE in your research, we ask that you please cite the following.
 
 *M. G. Bellemare, Y. Naddaf, J. Veness and M. Bowling. The Arcade Learning Environment: An Evaluation Platform for General Agents, Journal of Artificial Intelligence Research, Volume 47, pages 253-279, 2013.*
 
@@ -128,7 +127,7 @@ In BibTeX format:
 ```
 
 
-If you use the ALE with sticky actions (flag `repeat_action_probability`), or if you use the different game flavours (mode and difficulty switches), we ask you that you also cite the following:
+If you use the ALE with sticky actions (flag `repeat_action_probability`), or if you use the different game flavours (mode and difficulty switches):
 
 *M. C. Machado, M. G. Bellemare, E. Talvitie, J. Veness, M. J. Hausknecht, M. Bowling. Revisiting the Arcade Learning Environment: Evaluation Protocols and Open Problems for General Agents,  CoRR abs/1709.06009, 2017.*
 

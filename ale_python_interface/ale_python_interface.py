@@ -8,9 +8,20 @@ from ctypes import *
 import numpy as np
 from numpy.ctypeslib import as_ctypes
 import os
+import sys
+import inspect
 
-ale_lib = cdll.LoadLibrary(os.path.join(os.path.dirname(__file__),
-                                        'libale_c.so'))
+if sys.platform.startswith('win'):
+	# Windows
+	# we have to change dir to import the dlls ale_python_interface needs
+	cwd = os.getcwd()
+	# comes from http://stackoverflow.com/questions/50499/how-do-i-get-the-path-and-name-of-the-file-that-is-currently-executing
+	os.chdir(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))  # script directory
+	ale_lib = cdll.LoadLibrary('ale_python_interface.dll')
+	os.chdir(cwd)
+else:
+	# Linux or Mac OS
+	ale_lib = cdll.LoadLibrary(os.path.join(os.path.dirname(__file__), 'libale_c.so'))
 
 ale_lib.ALE_new.argtypes = None
 ale_lib.ALE_new.restype = c_void_p

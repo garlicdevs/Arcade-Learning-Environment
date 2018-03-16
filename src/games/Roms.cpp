@@ -12,6 +12,10 @@
 #include "Roms.hpp"
 #include "RomUtils.hpp"
 
+#if (defined(WIN32) || defined(__MINGW32__))
+	#include <algorithm>
+#endif
+
 // include the game implementations
 #include "supported/Adventure.hpp"
 #include "supported/AirRaid.hpp"
