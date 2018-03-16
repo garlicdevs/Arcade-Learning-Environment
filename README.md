@@ -6,10 +6,10 @@
 
 The Arcade Learning Environment (ALE) is a simple object-oriented framework that allows researchers and hobbyists to develop AI agents for Atari 2600 games. It is built on top of the Atari 2600 emulator [Stella](https://stella-emu.github.io/) and separates the details of emulation from agent design. This [video](https://www.youtube.com/watch?v=nzUiEkasXZI) depicts over 50 games currently supported in the ALE.
 
-This patch is just an unofficial hard fork. The original code can be found here(https://github.com/mgbellemare/Arcade-Learning-Environment).
+This patch is just an unofficial hard fork. The original code can be found [here](https://github.com/mgbellemare/Arcade-Learning-Environment).
 
 ## What is this patch for?
-- I had a hard time installing ALE on Windows 10 and Mac OS. Moreover, the Visual Studio port(https://github.com/Islandman93/Arcade-Learning-Environment) of IslandMan93 uses outdated code ALE 0.0.1. Therefore, I created this multi-platform patch.
+- I had a hard time installing ALE on Windows 10 and Mac OS. Moreover, the [Visual Studio port](https://github.com/Islandman93/Arcade-Learning-Environment) of IslandMan93 uses outdated code ALE 0.0.1. Therefore, I created this multi-platform patch.
 - This patch supports latest Mac OS Sierra and Windows 10 (with ALE 0.6.0).
 - More thread-safe (delete all static fields).
 - User can set configuration file for each environment using function ale.setString(b'config', b'path_to_config_file').
@@ -78,7 +78,6 @@ cd Arcade-Learning-Environment
 python winsetup.py install
 ```
 
-I have committed a rebuilt ale_python_interface.dll, you can skip Step 2) (If you use Windows 10 64-bit).
 
 ## List of command-line parameters
 
