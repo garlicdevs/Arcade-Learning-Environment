@@ -11,7 +11,6 @@ This patch is just an unofficial hard fork. The original code can be found [here
 ## What is this patch for?
 - I had a hard time installing ALE on Windows 10 and Mac OS. Moreover, the [Visual Studio port](https://github.com/Islandman93/Arcade-Learning-Environment) of IslandMan93 uses outdated code ALE 0.0.1. Therefore, I created this multi-platform patch for ALE 0.6.0.
 - This patch supports latest Mac OS Sierra and Windows 10 (with ALE 0.6.0).
-- More thread-safe (delete all static fields).
 - User can set configuration file for each environment using function ale.setString(b'config', b'path_to_config_file').
 - Merge IslandMan93's [Visual Studio 2013 port of the ALE 0.0.1](https://github.com/Islandman93/Arcade-Learning-Environment) to ALE 0.6.0.
 - This patch is indexed as version 0.6.1.
